@@ -1,0 +1,211 @@
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f4f7f99f;
+  margin: 0;
+}
+.inputGroup {
+  position: relative;
+}
+
+.placeholderLabel {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  color: #888; /* Placeholder color */
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+input:focus + .placeholderLabel,
+input:not(:placeholder-shown) + .placeholderLabel {
+  top: -20px;
+  left: 10px;
+  font-size: 12px;
+  color: #000;
+  width: 50px;
+}
+
+.propertyForm {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #f4f7f9;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.propertyForm input,
+.propertyForm select,
+.propertyForm textarea {
+  width: calc(50% - 20px);
+  padding: 12px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.propertyForm input:focus,
+.propertyForm select:focus,
+.propertyForm textarea:focus {
+  border-color: #5cb85c;
+}
+
+.propertyForm textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.propertyForm .fullWidth {
+  width: 100%;
+}
+
+
+.propertyForm label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+}
+
+.propertyForm label input {
+  margin-right: 10px;
+}
+
+.propertyForm button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: rgba(245, 245, 245, 0.297);
+  color: rgb(7, 97, 113);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .propertyForm input,
+  .propertyForm select {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.propertyForm .mapContainer {
+  margin-top: 20px;
+}
+
+.propertyForm .mapContainer iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  border: none;
+}
+
+.inputIconWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.inputIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc; /* Couleur de l'icône */
+  pointer-events: none;
+}
+
+input {
+  width: 100%;
+  padding-right: 30px; /* Ajoutez un espace à droite pour l'icône */
+}
+
+textarea {
+  width: 100%;
+}
+
+select {
+  width: 100%;
+}
+
+.mapContainer iframe {
+  width: 100%;
+  height: 300px;
+}
+.amenitiesForm {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.amenitiesSection {
+  margin-bottom: 30px;
+}
+
+.amenitiesSection h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.checkboxGroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+}
+
+.amenitiesForm label {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+}
+
+.amenitiesForm label input {
+  margin-right: 8px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+.inputContainer {
+  position: relative;
+}
+
+.inputContainer i {
+  position: absolute;
+  right: 10px;
+  top: 35%;
+  transform: translateY(-50%);
+  color: #066b87;
+}
+
+.inputContainer input {
+  padding-right: 35px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+

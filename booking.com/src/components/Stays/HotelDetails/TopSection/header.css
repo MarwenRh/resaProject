@@ -1,0 +1,219 @@
+.App {
+    font-family: Arial, sans-serif;
+  }
+  
+  .breadcrumb {
+    margin: 10px;
+    font-size: 14px;
+  }
+  
+  .breadcrumb a {
+    color: #0073e6;
+    text-decoration: none;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  .property-details {
+    margin: 20px;
+  }
+  
+  .property-header {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Adjust the gap between the name and the button as needed */
+  }
+  
+  
+  h1 {
+    font-size: 30px;
+    margin: 10px 0;
+  }
+  
+  .address {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .address a {
+    color: #0073e6;
+    text-decoration: none;
+  }
+  
+  .address a:hover {
+    text-decoration: underline;
+  }
+  
+  .property-nav {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .property-nav a {
+    padding: 10px 30px;
+    margin-right: 5px;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 2px solid transparent;
+  }
+  
+   .property-nav a.active {
+    border-bottom: 2px solid #0073e6;
+    
+    text-decoration: none;
+  }
+  .property-nav a:hover {
+    text-decoration: none;
+  }
+  
+  .property-actions {
+    margin-top: 20px;
+  }
+  
+  .reserve-btn {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 7px;
+  }
+  .reserve-btn:hover {
+    background-color: #034f6f;
+  }
+  .price-adjust-btn {
+    background-color: transparent;
+    color: #0073e6;
+    border: 1px solid #0073e6;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  .reply-form {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .reply-form h2 {
+    font-size: 24px;
+  }
+  
+  .reply-form p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .reply-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .rating-item {
+    width: 150px;
+  }
+  
+  .rating-item p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .stars {
+    color: #ffc107;
+    font-size: 20px;
+  }
+  
+  .comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 2;
+  }
+  
+  .comment-fields {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .comment-fields input {
+    width: calc(50% - 10px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .comment-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .post-comment-btn {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: flex-start;
+  }
+  .iconIoHeart {
+    font-size: 2rem; /* Agrandir les icônes */
+    color: #0073e6; /* Couleur par défaut des icônes */
+    transition: color 0.3s ease; /* Pour une transition douce de la couleur */
+  }
+  
+  .iconIoHeart:hover {
+    color: #034f6f; /* Changer la couleur en rouge au survol */
+  }
+  
+  .iconIoHeart-left {
+    margin-left: 690px; /* Ajouter une marge à gauche */
+  }
+  
+  .iconIoHeart-right {
+    margin-left: 7px; /* Espace entre les icônes */
+  }
+  .iconIoPrice {
+    font-size: 1.4rem; /* Agrandir les icônes */
+    color: #0073e6; /* Couleur par défaut des icônes */
+    transition: color 0.3s ease; /* Pour une transition douce de la couleur */
+  }
+  
+  .iconIoPrice:hover {
+    color: #034f6f; /* Changer la couleur en rouge au survol */
+  }
+  
+  .iconIoPrice-left {
+    margin-left: 1015px; /* Ajouter une marge à gauche */
+  }
+  .ajusterTarif{
+    font-weight: 400;
+    margin-top: -15px;
+  }

@@ -1,0 +1,252 @@
+
+:lang(ja) {
+  font-family: 'Latha', "Tamil MN", serif;
+  font-size: 120%;
+}
+
+.Dispo {
+  margin-left: 10%;
+  margin-top: -70px;
+  width: 50%;
+  height: 10px;
+  background-color: white;
+  border-radius:10px ;
+}
+
+.Dispo .searchDealsBars {
+  border: 2px solid rgb(254, 187, 2);
+  border-radius: 10px;
+  margin-top: 4%;
+  
+  height: 50px;
+  display: flex;
+}
+
+.Dispo .searchDealsBars > .search {
+  border-right: 2px solid rgb(254, 187, 2);
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+
+}
+
+.Dispo .searchDealsBars > .search .svgImg img {
+  margin-top: 5px;
+}
+
+.Dispo .searchDealsBars > .search .Cross .svgCross {
+  margin-top: 2px;
+  cursor: pointer;
+
+  fill: rgb(82, 80, 80);
+}
+
+.Dispo .searchDealsBars > .calender {
+  border-right: 2px solid rgb(254, 187, 2);
+  width: 30%;
+  /* position: relative; */
+  padding-top: 1.2%;
+  padding-left: 1%;
+  z-index: 5;
+
+}
+
+.Dispo .searchDealsBars > .calender .calenderPermnantItems {
+  display: flex;
+  font-weight: 500;
+  color: rgb(85, 84, 84);
+  
+
+}
+
+.Dispo .searchDealsBars > .calender .calenderPermnantItems > div {
+  margin-right: 4%;
+  display: flex;
+  font-size: 15px;
+  cursor: pointer;
+  
+}
+
+.Dispo .searchDealsBars > .calender .calenderPermnantItems > div p {
+  font-size: 15px;
+  color: rgb(85, 84, 84);
+  margin-right: 7%;
+  
+}
+
+.Dispo .searchDealsBars > .calender .calenderItem2 {
+  position: absolute;
+  top: 32%;
+  left: 35%;
+  z-index: 700;
+  width: 700px;
+
+}
+
+.Dispo .searchDealsBars > .calender .calenderItem {
+  position: absolute;
+  top: 32%;
+  left: 35%;
+  width: 700px;
+  z-index: 700;
+
+}
+
+.Dispo .searchDealsBars > .calender .calenderItem > .datePicke {
+  text-align: center;
+  font-weight: 500;
+  color: rgb(85, 84, 84);
+
+
+}
+
+.Dispo .searchDealsBars > .calender .calenderItem2 > .datePicke {
+  text-align: center;
+  font-weight: 500;
+  color: rgb(85, 84, 84);
+  
+
+}
+
+.Dispo .searchDealsBars > .selector {
+  border-right: 2px solid rgb(254, 187, 2);
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.Dispo .searchDealsBars > .selector .manIcon img {
+  width: 18px;
+  margin-top: 1px;
+
+}
+
+.Dispo .searchDealsBars > .selector > div {
+  padding-top: 3.5%;
+
+
+}
+
+.Dispo .searchDealsBars .selectorItems {
+
+
+  cursor: pointer;
+}
+
+.Dispo .searchDealsBars > .selector > .selectorDropDown {
+  position: absolute;
+  width: 23%;
+  height: 18%;
+  padding: 2%;
+  padding-top: 3px;
+  background-color: rgb(255, 255, 255);
+  z-index: 4;
+  top: 35%;
+  left: 53%;
+  z-index: 700;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px 4px rgba(116, 115, 115, 0.445);
+
+}
+
+.Dispo .searchDealsBars > .selector > .selectorDropDown .adult {
+  display: flex;
+  justify-content: space-between;
+ 
+
+}
+
+.Dispo .searchDealsBars > .selector > .selectorDropDown .adult
+> div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Dispo .searchDealsBars > .selector > .selectorDropDown .adult
+> div button {
+  border: 1px solid rgb(0, 113, 194);
+  padding-left: 15px;
+  padding-bottom: 5px;
+  padding-right: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: rgb(0, 113, 194);
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+  margin-top: 7px;
+}
+
+.Dispo .searchDealsBars > .selector > .selectorDropDown .adult
+> div h4 {
+  font-size: 15px;
+  margin-top: 15px;
+  font-weight: 500;
+  color: rgb(85, 84, 84);
+
+}
+
+.Dispo .searchDealsBars > .selector .selectorItems {
+  display: flex;
+
+}
+
+.Dispo .searchDealsBars > .selector .selectorItems p {
+  font-weight: 500;
+  margin-left: 10px;
+  color: rgb(85, 84, 84);
+
+}
+
+.Dispo .searchDealsBars > .button {
+  width: 30%;
+}
+
+.Dispo .searchDealsBars > .button button {
+  border: none;
+  background-color: #04668a;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  width: 100%;
+  height: 46px;
+  cursor: pointer;
+  text-transform: none; /* Ajoute cette ligne pour annuler les majuscules */
+}
+
+
+
+.Dispo > .lowerText {
+  display: flex;
+  margin-top: 2%;
+}
+
+.Dispo > .lowerText input {
+  padding: 100px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  display: block;
+  min-height: 20px;
+  cursor: pointer;
+  padding-left: 8px;
+  margin-right: 1px;
+  border: none;
+}
+
+.input {
+  margin-right: 2%;
+  width: 100%;
+  border: none;
+}
+
+.Dispo > .lowerText p {
+  font-size: 14px;
+  color: black;
+
+}

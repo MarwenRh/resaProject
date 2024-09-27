@@ -1,0 +1,16 @@
+
+.travel-planner {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .travel-planner h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .travel-planner p {
+    font-size: 16px;
+    color: #666;
+  }
+

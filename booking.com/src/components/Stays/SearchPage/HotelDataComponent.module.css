@@ -1,0 +1,311 @@
+.card {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;   
+    height: fit-content;
+    /* Define the height */
+  }
+    
+  .ImageSection {
+    position: relative;
+    width: 30%;
+  }
+  
+  .Image-section {
+    position: relative;
+    width: 30%;
+  }
+  
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 15px;
+      left:-13px;
+      background-color: green;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      width: fit-content;
+      height: fit-content;
+    }
+    
+    .overlay:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 3px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: green transparent transparent transparent;
+     
+    }
+    
+    
+    .heartIcon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: white;
+      font-size: 20px;
+    }
+    
+    .contentSection {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .contentSection h2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+    }
+    .content-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .content-section h2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+    }
+    .stars {
+      color: gold;
+      font-size: 20px;
+    }
+    
+    .location a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+    
+    .airportTaxi {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 70%;
+    }
+    
+    .roomInfo h3 {
+      margin: 2px 0 5px;
+    }
+    
+    .amenities p {
+      margin: 1px ;
+      font-size: 12px;
+      color: green;
+      margin-left: 10px;
+    }
+    
+    .rating {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .score {
+      background-color: #044687;
+      padding: 7px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      width: 32px;
+      color: white;
+      font-weight: bold;
+    }
+    .hide{
+      color:white;
+    }
+    .score-value {
+      color: white;
+      font-weight: bold;
+      
+      text-align: center;
+    }
+    .scoresText {
+      color: Black;
+      margin-left: 50px;
+      margin-right: 15px;
+  
+  
+    }
+    
+    .price-section {
+      margin-top: 10px;
+    }
+    
+    .price {
+     
+      color: rgba(0, 0, 0, 0.884);
+      font-size: 22px;
+      font-weight: normal;
+    }
+    
+    .amount {
+      font-size: 13px;  
+      color: rgba(104, 104, 104, 0.884);
+      font-weight: normal;
+    text-align: right;
+    }
+    .availabilityButton {
+      background-color: #0073e67a;;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      text-decoration-line: none;
+    }
+   
+    .newBooking {
+      background-color: rgb(255, 196, 0);
+      color: black;
+      border-radius: 5px;
+      margin-top: 10px;
+      text-align: center;
+     height: 28px;
+     width: 50%;
+    }
+    .maindiv {
+      box-shadow: rgba(170, 160, 160, 0.301) 0px 3px 8px;
+      padding: 25px;
+      border-radius: 10px;
+      display: flex;
+      gap: 2rem;
+      grid-gap: 2rem;
+      margin-bottom: 15px;
+      width:900px; /* Adjust the width as needed */
+      height: fit-content;
+  
+  }
+  
+  @media only screen and (max-width: 1300px) {
+      .maindiv {
+          width: 100%;
+      }
+  }
+  
+  @media only screen and (max-width: 1100px) {
+      .maindiv {
+          width: 65%;
+      }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+      .maindiv {
+          width: 80%;
+      }
+  }
+  
+  @media only screen and (max-width: 810px) {
+      .maindiv {
+          width: 95%;
+      }
+  }
+  
+  
+  .maindiv > div {
+      padding: 0;
+  
+  }
+  
+  .imgdiv > img {
+      width: 10rem;
+      height: 12rem;
+      border-radius: 5px;
+  }
+  
+  .h3 {
+      padding: 0;
+      margin: 0;
+      font-size: 22px;
+      color: #0071C2;
+  }
+  
+  .datadiv {
+      text-align: left;
+      
+  }
+  .datadiv h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+
+
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+  .datadiv > div {
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .datadiv > div > p {
+      font-size: 13px;
+      padding: 0;
+      margin: 0;
+  }
+  .heartIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.838);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6); /* Light gray for empty heart */
+    transition: color 0.3s;
+    outline: none; /* Remove outline when the button is focused */
+  }
+  
+  .heartIcon:focus {
+    outline: none; /* Ensure no outline appears when the button is focused */
+  }
+  
+  .heartIcon.favorited {
+    color: rgba(255, 0, 0, 0.708); /* Filled heart color */
+    background-color: rgb(255, 255, 255);
+  }
+  /* VerticalLine.css */
+  .verticalLine {
+    width: 2px; /* Largeur de la ligne */
+    height: 8%; /* Hauteur de la ligne, ajustez selon vos besoins */
+    background-color: rgba(128, 128, 128, 0.626); /* Couleur de la ligne */
+    position: absolute; 
+  /* Positionnez selon vos besoins */
+  }
+  
