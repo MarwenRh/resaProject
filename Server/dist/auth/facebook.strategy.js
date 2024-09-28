@@ -16,8 +16,8 @@ const passport_facebook_1 = require("passport-facebook");
 let FacebookStrategy = class FacebookStrategy extends (0, passport_1.PassportStrategy)(passport_facebook_1.Strategy, 'facebook') {
     constructor() {
         super({
-            clientID: '498183962837563',
-            clientSecret: '25501b3211737af437ab65c560a0e258',
+            clientID: process.env.clientIDFacebook,
+            clientSecret: process.env.clientSecretFacebook,
             callbackURL: 'http://localhost:3000/auth/facebook/callback',
             scope: 'email',
             profileFields: ['emails', 'name'],

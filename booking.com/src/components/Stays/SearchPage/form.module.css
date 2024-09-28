@@ -6,6 +6,11 @@ body {
 .inputGroup {
   position: relative;
 }
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
 
 .placeholderLabel {
   position: absolute;

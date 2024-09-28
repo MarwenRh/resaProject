@@ -10,8 +10,8 @@ config();
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     constructor() {
         super({
-            clientID: '',
-            clientSecret: '',
+            clientID: process.env.clientIDGoogle,
+            clientSecret: process.env.clientSecretGoogle,
             callbackURL: 'http://localhost:3000/auth/google/callback',
             scope: ['email', 'profile'],
         });

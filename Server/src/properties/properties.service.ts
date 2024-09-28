@@ -14,7 +14,7 @@ export class PropertiesService {
     const createdProperty = new this.propertyModel(createPropertyDto);
     return createdProperty.save();
   }
-
+  
   async findAll(): Promise<Property[]> {
     return this.propertyModel.find().exec();
   }

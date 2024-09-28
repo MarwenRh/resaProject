@@ -18,9 +18,13 @@ export class PropertiesController {
   }
   @Post('/api')
   @Public()
-  async create(@Body() createPropertyDto: CreatePropertyDto): Promise<Property> {
-    return this.propertiesService.create(createPropertyDto);
+  async create(@Body() createPropertyDto: CreatePropertyDto): Promise<{ property_id: string }> {
+    const createdProperty = await this.propertiesService.create(createPropertyDto);
+    
+    // Cast _id to string to satisfy the type check
+    return { property_id: createdProperty._id as string };
   }
+  
   @Public()
   @Get('/api')
   async findAll(): Promise<Property[]> {

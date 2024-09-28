@@ -7,7 +7,7 @@ import { Public } from 'src/auth/decorators/public.decorator';
 @Controller('availabilities')
 export class AvailabilityController {
   constructor(private readonly availabilityService: AvailabilityService) {}
-  
+  @Public()
   @Post('/api')
   async create(@Body() createAvailabilityDto: CreateAvailabilityDto) {
     return this.availabilityService.create(createAvailabilityDto);

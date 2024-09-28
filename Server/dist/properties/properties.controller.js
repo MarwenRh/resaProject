@@ -29,7 +29,8 @@ let PropertiesController = class PropertiesController {
         };
     }
     async create(createPropertyDto) {
-        return this.propertiesService.create(createPropertyDto);
+        const createdProperty = await this.propertiesService.create(createPropertyDto);
+        return { property_id: createdProperty._id };
     }
     async findAll() {
         return this.propertiesService.findAll();

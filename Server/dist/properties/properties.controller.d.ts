@@ -9,7 +9,9 @@ export declare class PropertiesController {
         'Access-Control-Allow-Methods': string;
         'Access-Control-Allow-Headers': string;
     };
-    create(createPropertyDto: CreatePropertyDto): Promise<Property>;
+    create(createPropertyDto: CreatePropertyDto): Promise<{
+        property_id: string;
+    }>;
     findAll(): Promise<Property[]>;
     findOne(id: string): Promise<Property>;
     update(id: string, updatePropertyDto: CreatePropertyDto): Promise<Property>;

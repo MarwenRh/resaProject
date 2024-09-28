@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from "react";
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { useHost } from "./HostProvider";
 const words = ['Appartement', 'Hôtel', 'Maison de vacance', 'Auberge de jeunesse', 'Chambre d\'hôtes'];
 
 const AddProperty = () => {
@@ -21,6 +22,8 @@ const AddProperty = () => {
         return () => clearInterval(interval);
       }, []);
       const history = useHistory();
+      const { setHostId } = useHost();
+
       const handleNavigate = async (e) => {
         e.preventDefault();
         try {
@@ -34,7 +37,7 @@ const AddProperty = () => {
             identity_card,
           });
           history.push(`/add`);
-    
+          setHostId(response.data._id); 
           if (response.status === 200 && response.data.access_token) {
             localStorage.setItem('token', response.data.access_token); // Save JWT token
          

@@ -13,7 +13,7 @@ export const CalendarPicker = ({ onDateSelect }) => {
 
   const handleSelect = (ranges) => {
     setRange(ranges.selection); // Update the range state
-    onDateSelect(ranges.selection); // Pass the selected date range to parent component
+    onDateSelect(ranges.selection); // Pass the selected range to the parent component
   };
 
   return (

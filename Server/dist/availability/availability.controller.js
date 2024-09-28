@@ -55,6 +55,7 @@ let AvailabilityController = class AvailabilityController {
 };
 exports.AvailabilityController = AvailabilityController;
 __decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Post)('/api'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
