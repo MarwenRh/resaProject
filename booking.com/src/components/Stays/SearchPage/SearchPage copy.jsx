@@ -73,20 +73,20 @@ export const SearchPage2 = () => {
         Patio_or_balcony: false,
         BBQ_grill: false,
       },
-      policies: {
+      policies: { 
         smoking: false,
         pets: false,
         parties_or_events: false,
-        Check_in_start: "",
-        Check_in_end: "",
-        Check_out_start: "",
-        Check_out_end: "",
-        Quiet_Hours_start: "",
-        Quiet_Hours_end: "",
-        Cleaning_Maintenance: "",
-        Cancellation_policy: "",
+        check_in_start: "",
+        check_in_end: "",
+        check_out_start: "",
+        check_out_end: "",
+        quiet_hours_start: "",
+        quiet_hours_end: "",
+        cleaning_maintenance: "",
+        cancellation_policy: "",
         guests_allowed: false,
-      },
+      },means_of_payment: [],
     });
   
     const handleChange = (e) => {
@@ -97,7 +97,21 @@ export const SearchPage2 = () => {
       }));
     };
   
-  
+    const handlePaymentChange = (e) => {
+      const { name, checked } = e.target;
+    
+      setFormData((prevState) => {
+        const updatedPayments = checked
+          ? [...prevState.means_of_payment, name] // Add payment method if checked
+          : prevState.means_of_payment.filter((method) => method !== name); // Remove if unchecked
+    
+        return {
+          ...prevState,
+          means_of_payment: updatedPayments,
+        };
+      });
+    };
+    
     const handleFileChange = (e) => {
       setFormData((prevState) => ({
         ...prevState,
@@ -137,14 +151,16 @@ const handleAmenitiesChange = (e) => {
 };
 const handlePoliciesChange = (e) => {
   const { name, type, checked, value } = e.target;
+
   setFormData((prevState) => ({
     ...prevState,
     policies: {
       ...prevState.policies,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : value, // Use value directly, no need for trim check
     },
   }));
 };
+
 
     const history = useHistory();
   
@@ -671,114 +687,192 @@ const handlePoliciesChange = (e) => {
     </label>
 
     <label>
-      <div style={{ marginBottom: '20px' }}>
-        <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
-        Check-in Start
-      </div>
-      <input type="time" name="Check_in_start" value={formData.policies.Check_in_start}
-        onChange={handlePoliciesChange} style={{ width: '20%', height: '25%', marginLeft: '10px' }} />
-    </label>
+  <div style={{ marginBottom: '20px' }}>
+    <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
+    Check-in Start
+  </div>
+  <input
+    type="time"
+    name="Check-in_start"
+    value={formData.policies["Check-in_start"]}
+    onChange={handlePoliciesChange}
+    style={{ width: '20%', height: '25%', marginLeft: '10px' }}
+  />
+</label>
 
-    <label>
-      <div style={{ marginBottom: '20px' }}>
-        <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
-        Check-in End
-      </div>
-      <input type="time" name="Check_in_end" value={formData.policies.Check_in_end}
-        onChange={handlePoliciesChange} style={{ width: '20%', height: '25%', marginLeft: '10px' }} />
-    </label>
+<label>
+  <div style={{ marginBottom: '20px' }}>
+    <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
+    Check-in Start
+  </div>
+  <input
+    type="time"
+    name="check_in_start"
+    value={formData.policies.check_in_start}
+    onChange={handlePoliciesChange}
+    style={{ width: '20%', height: '25%', marginLeft: '10px' }}
+  />
+</label>
 
-    <label>
-      <div style={{ marginBottom: '20px' }}>
-        <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
-        Check-out Start
-      </div>
-      <input type="time" name="Check_out_start" value={formData.policies.Check_out_start}
-        onChange={handlePoliciesChange} style={{ width: '20%', height: '25%', marginLeft: '10px' }} />
-    </label>
+<label>
+  <div style={{ marginBottom: '20px' }}>
+    <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
+    Check-in End
+  </div>
+  <input
+    type="time"
+    name="check_in_end"
+    value={formData.policies.check_in_end}
+    onChange={handlePoliciesChange}
+    style={{ width: '20%', height: '25%', marginLeft: '10px' }}
+  />
+</label>
 
-    <label>
-      <div style={{ marginBottom: '20px' }}>
-        <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
-        Check-out End
-      </div>
-      <input type="time" name="Check_out_end" value={formData.policies.Check_out_end}
-        onChange={handlePoliciesChange} style={{ width: '20%', height: '25%', marginLeft: '10px' }} />
-    </label>
+<label>
+  <div style={{ marginBottom: '20px' }}>
+    <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
+    Check-out Start
+  </div>
+  <input
+    type="time"
+    name="check_out_start"
+    value={formData.policies.check_out_start}
+    onChange={handlePoliciesChange}
+    style={{ width: '20%', height: '25%', marginLeft: '10px' }}
+  />
+</label>
 
-    <label>
-      <div style={{ marginBottom: '20px' }}>
-        <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
-        Quiet Hours Start
-      </div>
-      <input type="time" name="Quiet_Hours_start" value={formData.policies.Quiet_Hours_start}
-        onChange={handlePoliciesChange} style={{ width: '20%', height: '25%', marginLeft: '10px' }} />
-    </label>
+<label>
+  <div style={{ marginBottom: '20px' }}>
+    <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
+    Check-out End
+  </div>
+  <input
+    type="time"
+    name="check_out_end"
+    value={formData.policies.check_out_end}
+    onChange={handlePoliciesChange}
+    style={{ width: '20%', height: '25%', marginLeft: '10px' }}
+  />
+</label>
 
-    <label>
-      <div style={{ marginBottom: '20px' }}>
-        <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
-        Quiet Hours End
-      </div>
-      <input type="time" name="Quiet_Hours_end" value={formData.policies.Quiet_Hours_end}
-        onChange={handlePoliciesChange} style={{ width: '20%', height: '25%', marginLeft: '10px' }} />
-    </label>
+<label>
+  <div style={{ marginBottom: '20px' }}>
+    <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
+    Quiet Hours Start
+  </div>
+  <input
+    type="time"
+    name="quiet_hours_start"
+    value={formData.policies.quiet_hours_start}
+    onChange={handlePoliciesChange}
+    style={{ width: '20%', height: '25%', marginLeft: '10px' }}
+  />
+</label>
 
-    <label>
-      <input type="text" placeholder="Cleaning Maintenance" name="Cleaning_Maintenance"
-        value={formData.policies.Cleaning_Maintenance} onChange={handlePoliciesChange} />
-    </label>
+<label>
+  <div style={{ marginBottom: '20px' }}>
+    <IoCalendarOutline size={20} style={{ marginRight: '8px' }} />
+    Quiet Hours End
+  </div>
+  <input
+    type="time"
+    name="quiet_hours_end"
+    value={formData.policies.quiet_hours_end}
+    onChange={handlePoliciesChange}
+    style={{ width: '20%', height: '25%', marginLeft: '10px' }}
+  />
+</label>
 
-    
-    <label>
-      <input type="text" placeholder="Cancellation Policy" name="Cancellation_policy"
-        value={formData.policies.Cancellation_policy} onChange={handlePoliciesChange} />
-    </label>
+<label>
+  <input
+    type="text"
+    placeholder="Cleaning Maintenance"
+    name="cleaning_maintenance"
+    value={formData.policies.cleaning_maintenance}
+    onChange={handlePoliciesChange}
+  />
+</label>
+
+<label>
+  <input
+    type="text"
+    placeholder="Cancellation Policy"
+    name="cancellation_policy"
+    value={formData.policies.cancellation_policy}
+    onChange={handlePoliciesChange}
+  />
+</label>
+
   </div>
 </section>
 <section className={styles.section}>
-   <h2>7. Means of payment</h2>      
-  <div >
-    
-  <div className={styles.checkboxGroup}>
+  <h2>7. Means of payment</h2>
+  <div>
+    <div className={styles.checkboxGroup}>
       <label>
-        <input type="checkbox" name="Credit Card" />
+        <input
+          type="checkbox"
+          name="credit card"
+          onChange={handlePaymentChange}
+        />
         <FaCreditCard size={20} style={{ marginRight: '8px' }} />
         Credit Card
       </label>
 
       <label>
-        <input type="checkbox" name="Debit Card" />
+        <input
+          type="checkbox"
+          name="debit card"
+          onChange={handlePaymentChange}
+        />
         <FaCreditCard size={20} style={{ marginRight: '8px' }} />
         Debit Card
       </label>
 
       <label>
-        <input type="checkbox" name="Paypal" />
+        <input
+          type="checkbox"
+          name="paypal"
+          onChange={handlePaymentChange}
+        />
         <FaPaypal size={20} style={{ marginRight: '8px' }} />
         Paypal
       </label>
 
       <label>
-        <input type="checkbox" name="Cash" />
+        <input
+          type="checkbox"
+          name="cash"
+          onChange={handlePaymentChange}
+        />
         <FaMoneyBillAlt size={20} style={{ marginRight: '8px' }} />
         Cash
       </label>
 
       <label>
-        <input type="checkbox" name="Check" />
+        <input
+          type="checkbox"
+          name="check"
+          onChange={handlePaymentChange}
+        />
         <CiMoneyCheck1 size={25} style={{ marginRight: '8px' }} />
         Check
       </label>
 
       <label>
-        <input type="checkbox" name="Bank transfer" />
+        <input
+          type="checkbox"
+          name="bank transfer"
+          onChange={handlePaymentChange}
+        />
         <FaUniversity size={20} style={{ marginRight: '8px' }} />
-        Bank transfer
+        Bank Transfer
       </label>
     </div>
   </div>
 </section>
+
 <section className={styles.section}>
           <h2>8. Contact</h2>
           <input
