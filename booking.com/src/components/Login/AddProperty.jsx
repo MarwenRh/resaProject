@@ -5,15 +5,63 @@ import { useHost } from "./HostProvider";
 const words = ['Appartement', 'Hôtel', 'Maison de vacance', 'Auberge de jeunesse', 'Chambre d\'hôtes'];
 
 const AddProperty = () => {
-   
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [identity_card, setIdentity_card] = useState('');
+  const [birth_date, setBirth_date] = useState('');
+  const [birth_place, setBirth_place] = useState('');
+  const [about, setAbout] = useState('');
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Validate Name
+    if (!name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    // Validate Email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailPattern.test(email)) {
+      newErrors.email = 'Enter a valid email';
+    }
+
+    // Validate Phone
+    if (!phone.trim()) {
+      newErrors.phone = 'Phone is required';
+    }
+
+    // Validate Identity Card
+    if (!identity_card.trim()) {
+      newErrors.identity_card = 'Identity card is required';
+    }
+
+    // Validate Birth Date
+    if (!birth_date.trim()) {
+      newErrors.birth_date = 'Birth date is required';
+    }
+
+    // Validate Birth Place
+    if (!birth_place.trim()) {
+      newErrors.birth_place = 'Birth place is required';
+    }
+
+    // Validate About Section
+    if (!about.trim()) {
+      newErrors.about = 'About section cannot be empty';
+    }
+
+    setErrors(newErrors);
+    
+    // If there are no errors, return true
+    return Object.keys(newErrors).length === 0;
+  };
       const [currentWordIndex, setCurrentWordIndex] = useState(0);
-      const [name, setName] = useState('');
-      const [phone, setPhone] = useState('');
-      const [email, setEmail] = useState('');
-      const [identity_card, setidentity_card] = useState('');
-      const [birth_date, setbirth_date] = useState('');
-      const [birth_place, setbirth_place] = useState('');
-      const [about, setAbout] = useState('');
+     
       useEffect(() => {
         const interval = setInterval(() => {
           setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
@@ -26,6 +74,7 @@ const AddProperty = () => {
 
       const handleNavigate = async (e) => {
         e.preventDefault();
+        if (validateForm()) {
         try {
           const response = await axios.post('http://localhost:3000/hosts/api', {
             name,
@@ -46,7 +95,7 @@ const AddProperty = () => {
           }
         } catch (postError) {
           console.error('There was an error posting!', postError);
-        }
+        }}
       };
     
   return (
@@ -69,54 +118,129 @@ const AddProperty = () => {
                         <h1 className="text-white mb-3">Inscrivez-vous gratuitement</h1>
                         <p className="text-white mb-4">Get <span className="text-warning">50% Off</span> On Your First Adventure Trip With Travela. Get More Deal Offers Here.</p>
                         <form>
-                            <div className="row g-3">
-                                <div className="col-md-6">
-                                    <div className="form-floating">
-                                        <input type="text"value={name} onChange={(e) => setName(e.target.value)} className="form-control bg-white border-0" id="name" placeholder="Your Name"/>
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="form-floating">
-                                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}className="form-control bg-white border-0" id="email" placeholder="Your Email"/>
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)}className="form-control bg-white border-0" id="datetime" placeholder="Phone" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Phone</label>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text"value={identity_card} onChange={(e) => setidentity_card(e.target.value)}className="form-control bg-white border-0" id="identity_card" placeholder="Identity" data-target="#date3" data-toggle="identity_card" />
-                                        <label for="identity_card">Identity</label>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" value={birth_date} onChange={(e) => setbirth_date(e.target.value)}className="form-control bg-white border-0" id="birth_date" placeholder="Birth Day" data-target="#date3" data-toggle="birth_date" />
-                                        <label for="birth_date">Birth Day</label>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" value={birth_place} onChange={(e) => setbirth_place(e.target.value)}className="form-control bg-white border-0" id="birth_place" placeholder="Birth Place" data-target="#date3" data-toggle="birth_place" />
-                                        <label for="birth_place">Birth Place</label>
-                                    </div>
-                                </div>
-                                <div className="col-12">
-                                    <div className="form-floating">
-                                        <textarea value={about} onChange={(e) => setAbout(e.target.value)}className="form-control bg-white border-0" placeholder="Special Request" id="message" style={{height: "100px"}}></textarea>
-                                        <label for="message">About</label>
-                                    </div>
-                                </div>
-                                <div className="col-12">
-                                    <button className="btn btn-primary text-white w-100 py-3" type="submit" onClick={handleNavigate}>Add Now</button>
-                                </div>
-                            </div>
-                        </form>
+      <div className="row g-3">
+        <div className="col-md-6">
+          <div className="form-floating">
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="form-control bg-white border-0"
+              id="name"
+              placeholder="Your Name"
+            />
+            <label htmlFor="name">Your Name</label>
+            {errors.name && <span className="text-danger">{errors.name}</span>}
+          </div>
+        </div>
+
+        <div className="col-md-6">
+          <div className="form-floating">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="form-control bg-white border-0"
+              id="email"
+              placeholder="Your Email"
+            />
+            <label htmlFor="email">Your Email</label>
+            {errors.email && <span className="text-danger">{errors.email}</span>}
+          </div>
+        </div>
+
+        <div className="col-md-6">
+          <div className="form-floating date">
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="form-control bg-white border-0"
+              id="phone"
+              placeholder="Phone"
+            />
+            <label htmlFor="phone">Phone</label>
+            {errors.phone && <span className="text-danger">{errors.phone}</span>}
+          </div>
+        </div>
+
+        <div className="col-md-6">
+          <div className="form-floating date">
+            <input
+              type="text"
+              value={identity_card}
+              onChange={(e) => setIdentity_card(e.target.value)}
+              className="form-control bg-white border-0"
+              id="identity_card"
+              placeholder="Identity Card"
+            />
+            <label htmlFor="identity_card">Identity Card</label>
+            {errors.identity_card && (
+              <span className="text-danger">{errors.identity_card}</span>
+            )}
+          </div>
+        </div>
+
+        <div className="col-md-6">
+          <div className="form-floating date">
+            <input
+              type="text"
+              value={birth_date}
+              onChange={(e) => setBirth_date(e.target.value)}
+              className="form-control bg-white border-0"
+              id="birth_date"
+              placeholder="Birth Date"
+            />
+            <label htmlFor="birth_date">Birth Date</label>
+            {errors.birth_date && (
+              <span className="text-danger">{errors.birth_date}</span>
+            )}
+          </div>
+        </div>
+
+        <div className="col-md-6">
+          <div className="form-floating date">
+            <input
+              type="text"
+              value={birth_place}
+              onChange={(e) => setBirth_place(e.target.value)}
+              className="form-control bg-white border-0"
+              id="birth_place"
+              placeholder="Birth Place"
+            />
+            <label htmlFor="birth_place">Birth Place</label>
+            {errors.birth_place && (
+              <span className="text-danger">{errors.birth_place}</span>
+            )}
+          </div>
+        </div>
+
+        <div className="col-12">
+          <div className="form-floating">
+            <textarea
+              value={about}
+              onChange={(e) => setAbout(e.target.value)}
+              className="form-control bg-white border-0"
+              placeholder="About"
+              id="about"
+              style={{ height: '100px' }}
+            ></textarea>
+            <label htmlFor="about">About</label>
+            {errors.about && <span className="text-danger">{errors.about}</span>}
+          </div>
+        </div>
+
+        <div className="col-12">
+          <button
+            className="btn btn-primary text-white w-100 py-3"
+            type="submit"
+            onClick={handleNavigate}
+          >
+            Add Now
+          </button>
+        </div>
+      </div>
+    </form>
                     </div>
                 </div>
             </div>
