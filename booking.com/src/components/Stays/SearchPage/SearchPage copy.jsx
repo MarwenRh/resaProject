@@ -18,6 +18,8 @@ export const SearchPage2 = () => {
       Rating:"",
       description: "",
       price: "",
+      start_time: "",
+      end_time:"" ,
       afterPriceLabel: "",
       hoaFee: "",
       type: "",
@@ -94,6 +96,22 @@ export const SearchPage2 = () => {
       setFormData((prevState) => ({
         ...prevState,
         [name]: value,
+      }));
+    };
+    const handleDateSelect = (range) => {
+      const start = new Date(range.startDate);
+      const end = new Date(range.endDate);
+  
+      // Set start time at midnight
+      const start_time = new Date(start.setHours(0, 0, 0, 0)).toISOString();
+  
+      // Set end time at midnight of the day after end date
+      const end_time = new Date(end.setDate(end.getDate() + 1)).toISOString();
+  
+      setFormData((prevData) => ({
+        ...prevData,
+        start_time,
+        end_time,
       }));
     };
   
@@ -197,7 +215,13 @@ const handlePoliciesChange = (e) => {
           added_date:added_date,
           
         });
-        if (response.status === 200) {
+        if (response.status === 201) {
+          await axios.post('http://localhost:3000/availabilities/api', {
+            property_id:"1",
+            available_slots :{start_time:formData.name,
+            end_time:formData.type,
+            price:formData.price}
+          });
           history.push('/add');
           console.log('Property added successfully!');
         } else {
@@ -261,9 +285,9 @@ const handlePoliciesChange = (e) => {
       </section>
 
       <section className={styles.section}>
-        <h2> Property Price</h2>
+      <h2>Property Price</h2>
         <div className={styles.inputContainer}>
-        <i class="fas fa-dollar-sign"></i>
+          <i className="fas fa-dollar-sign"></i>
           <input
             type="number"
             placeholder="Price in $"
@@ -271,34 +295,8 @@ const handlePoliciesChange = (e) => {
             value={formData.price}
             onChange={handleChange}
           />
-          
         </div>
-       <CalendarPicker/>
-        {/* Ajout de la sélection des catégories */}
-        
-      </section>
-      <section className={styles.section}>
-        <h2> Property Availibility</h2>
-        <div className={styles.inputContainer}>
-        <i class="fas fa-dollar-sign"></i>
-          <input
-            type="number"
-            placeholder="Start Time"
-            name="startTime"
-            value={formData.startTime}
-            onChange={handleChange}
-          />
-        </div>
-        <div className={styles.inputContainer}>
-        <i class="fas fa-dollar-sign"></i>
-          <input
-            type="number"
-            placeholder="End Time"
-            name="endTime"
-            value={formData.endTime}
-            onChange={handleChange}
-          />
-        </div>
+        <CalendarPicker onDateSelect={handleDateSelect} />
       </section>
       <section className={styles.section}>
         <h2> Select Type</h2>

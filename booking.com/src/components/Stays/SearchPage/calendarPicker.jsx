@@ -1,25 +1,26 @@
-import React, { useState } from 'react'; // Import React and useState
+import React, { useState } from 'react';
 import { DateRangePicker } from 'react-date-range';
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-import { enGB } from 'date-fns/locale'; // import your desired locale
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
+import { enGB } from 'date-fns/locale';
 
-export const CalendarPicker = () => { // Use PascalCase for the component name
-  const [date, setDate] = useState({
+export const CalendarPicker = ({ onDateSelect }) => {
+  const [range, setRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
     key: 'selection',
   });
 
   const handleSelect = (ranges) => {
-    setDate(ranges.selection); // Update the date state with the new range
+    setRange(ranges.selection); // Update the range state
+    onDateSelect(ranges.selection); // Pass the selected date range to parent component
   };
 
   return (
     <DateRangePicker
-      ranges={[date]}
+      ranges={[range]}
       onChange={handleSelect}
-      locale={enGB} // Pass the locale here
+      locale={enGB}
     />
   );
 };
